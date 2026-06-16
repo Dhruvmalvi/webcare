@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "functions": {
+    "server.js": {
+      "includeFiles": "**/*.{html,css,js,json}"
+    },
+    "api/index.js": {
+      "includeFiles": "**/*.{html,css,js,json}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}

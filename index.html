@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Portfolio - Software Developer & Freelancer">
+    <title>Software Developer | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="glass-nav">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Web<span class="text-gradient">Care</span></a>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="btn-primary-sm">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section flex-center">
+            <div class="container hero-content reveal">
+                <p class="greeting text-gradient">Welcome to my universe</p>
+                <h1 class="hero-title">
+                    <span class="highlight">WebCare</span><br>
+                    <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                </h1>
+                <p class="hero-tagline">
+                    I craft high-performance, enterprise-grade digital experiences with elegant code and futuristic
+                    design.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+            </div>
+            <a href="#about" class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">About <span class="text-gradient">Me</span></h2>
+                <div class="about-grid">
+
+                    <div class="about-content reveal fade-right">
+                        <h3 class="about-subtitle">Architecting Digital Solutions</h3>
+                        <p>With over 5 years of experience building scalable web applications, I specialize in the
+                            intersection of exceptional design and flawless engineering. My mission is to build software
+                            that not only functions perfectly but provides a delightful, seamless user experience.</p>
+
+                        <div class="stats-grid">
+                            <div class="stat-card glass-card">
+                                <h4 class="stat-number text-gradient">2+</h4>
+                                <p class="stat-label">Years Exp</p>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <h4 class="stat-number text-gradient">10+</h4>
+                                <p class="stat-label">Projects</p>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <h4 class="stat-number text-gradient">10+</h4>
+                                <p class="stat-label">Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Technical <span class="text-gradient">Arsenal</span></h2>
+
+                <div class="skills-container reveal fade-up">
+                    <div class="skill-category glass-card">
+                        <h3><i class="fa-solid fa-code text-gradient"></i> Frontend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item"><span>React.js</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>TypeScript</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>Next.js</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>Tailwind CSS</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category glass-card">
+                        <h3><i class="fa-solid fa-server text-gradient"></i> Backend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item"><span>Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>Express</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>Python</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>GraphQL</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category glass-card">
+                        <h3><i class="fa-solid fa-database text-gradient"></i> Database & Cloud</h3>
+                        <div class="skill-items">
+                            <div class="skill-item"><span>PostgreSQL</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>MongoDB</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>AWS</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item"><span>Docker</span>
+                                <div class="skill-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Featured <span class="text-gradient">Projects</span></h2>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card reveal fade-up">
+                        <div class="project-img-wrapper">
+                            <img src="assets/webcare_ecommerce.png"
+                                alt="WebCare E-Commerce">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Dhruvmalvi/E-commerce-webSite-.git" target="_blank" class="icon-link"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://e-commerce-web-site-zeta.vercel.app/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">WebCare E-Commerce</h3>
+                            <p class="project-desc">A premium, full-stack e-commerce platform featuring a dynamic shopping cart, sleek glassmorphic UI, and full Razorpay payment integration.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>Razorpay</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card reveal fade-up" style="transition-delay: 200ms;">
+                        <div class="project-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Project 3">
+                            <div class="project-overlay">
+
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">AI Content Generator</h3>
+                            <p class="project-desc">SaaS application leveraging OpenAI APIs to generate SEO-optimized
+                                content with a futuristic user interface.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Career <span class="text-gradient">Journey</span></h2>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="timeline-role">Frontend Engineer</h3>
+                            <p>Led a team of 4 developers to rebuild the core customer portal, improving performance
+                                scores by 40% and user retention by 25%.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3 class="timeline-role">Full Stack Developer</h3>
+                            <p>Developed and deployed over 15 custom web applications for enterprise clients using
+                                React, Node.js, and AWS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Let's <span class="text-gradient">Connect</span></h2>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal fade-right">
+                        <div class="contact-card glass-card">
+                            <i class="fa-solid fa-envelope contact-icon text-gradient"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>webcare1233@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card glass-card">
+                            <i class="fa-solid fa-location-dot contact-icon text-gradient"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Delhi,Gujart,Mumbai</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <form class="contact-form glass-card reveal fade-left" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder="Your Name" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder="Your Email" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required placeholder="Your Message" rows="5"
+                                class="form-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#hero">Web<span class="text-gradient">Care</span></a>
+                    <p>Crafting digital experiences with precision and passion.</p>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WebCare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

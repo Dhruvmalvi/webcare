@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | WebCare</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+
+    <!-- Authentication Check -->
+    <script>
+        if (!sessionStorage.getItem('admin_token')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar glass-card">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">Web<span class="text-gradient">Care</span></a>
+                <span class="admin-badge">Admin</span>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item active" data-tab="dashboard">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </li>
+                <li class="nav-item" data-tab="messages">
+                    <i class="fa-solid fa-envelope"></i> Messages
+                </li>
+                <li class="nav-item" data-tab="projects">
+                    <i class="fa-solid fa-folder-open"></i> Projects
+                </li>
+                <li class="nav-item" data-tab="settings">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </li>
+            </ul>
+
+            <div class="sidebar-footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <button id="logout-btn" class="btn btn-outline-sm" style="width: 100%; justify-content: center; border-color: #ef4444; color: #ef4444;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
+                <a href="index.html" class="btn btn-outline-sm" style="width: 100%; justify-content: center;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Site
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header glass-card">
+                <h2 id="current-tab-title">Dashboard</h2>
+                <div class="admin-profile">
+                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                    <span>Admin User</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard-tab">
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon"><i class="fa-solid fa-envelope text-gradient"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Messages</h3>
+                            <p class="stat-number text-gradient" id="stat-messages">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon"><i class="fa-solid fa-folder-open text-gradient"></i></div>
+                        <div class="stat-info">
+                            <h3>Active Projects</h3>
+                            <p class="stat-number text-gradient" id="stat-projects">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon"><i class="fa-solid fa-eye text-gradient"></i></div>
+                        <div class="stat-info">
+                            <h3>Page Views</h3>
+                            <p class="stat-number text-gradient" id="stat-views">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-activity-section glass-card mt-4">
+                    <h3>Recent Activity</h3>
+                    <p class="text-muted">No recent activity to show.</p>
+                </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div class="tab-content" id="messages-tab">
+                <div class="admin-panel glass-card">
+                    <div class="panel-header">
+                        <h3>Contact Submissions</h3>
+                        <button class="btn btn-primary-sm" id="clear-messages">Clear All</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-table-body">
+                                <!-- Messages will be dynamically injected here -->
+                            </tbody>
+                        </table>
+                        <div id="no-messages-alert" class="empty-state">
+                            <i class="fa-solid fa-inbox"></i>
+                            <p>No messages yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Tab -->
+            <div class="tab-content" id="projects-tab">
+                <div class="admin-panel glass-card">
+                    <div class="panel-header">
+                        <h3>Manage Projects</h3>
+                        <button class="btn btn-primary-sm" id="add-project-btn"><i class="fa-solid fa-plus"></i> Add Project</button>
+                    </div>
+                    
+                    <!-- Add Project Form (Hidden by default) -->
+                    <div class="project-form-container glass-card" id="project-form-container" style="display: none; margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">New Project</h4>
+                        <form id="add-project-form" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="proj-title" required placeholder="Project Title" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="proj-img" required placeholder="Image URL (e.g., https://...)" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="proj-desc" required placeholder="Project Description" rows="3" class="form-input"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="proj-tech" required placeholder="Tech Stack (comma separated)" class="form-input">
+                            </div>
+                            <div class="form-group" style="display: flex; gap: 1rem;">
+                                <input type="text" id="proj-github" placeholder="GitHub URL (optional)" class="form-input">
+                                <input type="text" id="proj-live" placeholder="Live URL (optional)" class="form-input">
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                <button type="submit" class="btn btn-primary w-full">Save Project</button>
+                                <button type="button" class="btn btn-outline w-full" id="cancel-project-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Tech Stack</th>
+                                    <th>Links</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projects-table-body">
+                                <!-- Projects will be dynamically injected here -->
+                            </tbody>
+                        </table>
+                        <div id="no-projects-alert" class="empty-state">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <p>No projects added.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="admin-panel glass-card">
+                    <h3>Dashboard Settings</h3>
+                    <p class="text-muted" style="margin-top: 1rem;">Settings module coming soon. (Requires backend integration for profile updates).</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="admin.js"></script>
+</body>
+</html>
